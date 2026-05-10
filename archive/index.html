@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Daily Pulse Archive</title>
+  <link rel="stylesheet" href="../assets/css/pulse.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Daily Pulse home">Daily Pulse</a>
+    <nav class="nav-actions" aria-label="Pulse actions">
+      <a class="icon-link" href="../" title="Latest pulse" aria-label="Latest pulse"><span data-lucide="arrow-left"></span></a>
+      <a class="primary-action" href="https://github.com/revanthreddy-hai/daily-pulse" title="Open source repository">
+        <span data-lucide="github"></span>
+        <span>Source</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="pulse-shell">
+    <section class="intro" aria-labelledby="pulse-title">
+      <p class="kicker">Archive</p>
+      <h1 id="pulse-title">Past Pulses</h1>
+      <p class="lede">Browse previous public Daily Pulse pages.</p>
+    </section>
+
+    <section class="archive-list" aria-label="Past Daily Pulses">
+      <a class="archive-row" href="../2026-05-10/">
+        <span>May 10, 2026</span>
+        <strong>Open pulse</strong>
+      </a>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    lucide.createIcons({ strokeWidth: 2 });
+  </script>
+</body>
+</html>

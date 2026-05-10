@@ -235,6 +235,38 @@ h1 {
   background: var(--line-strong);
 }
 
+.archive-list {
+  display: grid;
+  gap: 14px;
+  width: min(100%, 820px);
+  margin: 0 auto;
+}
+
+.archive-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 76px;
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.archive-row span {
+  font-size: 20px;
+  font-weight: 740;
+}
+
+.archive-row strong {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 @media (max-width: 760px) {
   .topbar {
     padding: 14px 18px;

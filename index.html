@@ -11,7 +11,7 @@
   <header class="topbar">
     <a class="brand" href="./" aria-label="Daily Pulse home">Daily Pulse</a>
     <nav class="nav-actions" aria-label="Pulse actions">
-      <a class="icon-link" href="archive/2026-05-10.html" title="Open archive page" aria-label="Open archive page"><span data-lucide="calendar-days"></span></a>
+      <a class="icon-link" href="archive/" title="Past pulses" aria-label="Past pulses"><span data-lucide="calendar-days"></span></a>
       <a class="primary-action" href="https://github.com/revanthreddy-hai/daily-pulse" title="Open source repository">
         <span data-lucide="github"></span>
         <span>Source</span>
@@ -23,7 +23,7 @@
     <section class="intro" aria-labelledby="pulse-title">
       <p class="kicker">Morning intelligence</p>
       <h1 id="pulse-title">May 10</h1>
-      <p class="lede">Five signals at the intersection of service mesh, LLM serving, and reliability engineering worth a scan today.</p>
+      <p class="lede">Service-mesh inference routing, SGLang upstream activity, and formal-verification angles for agent safety lead today.</p>
     </section>
 
     <section class="feed" aria-label="Daily Pulse cards">
@@ -31,11 +31,11 @@
         <img src="assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
           <p class="label">SERVICE MESH</p>
-          <h2>Istio + Gateway API Inference Extension</h2>
-          <p>Istio now supports AI-aware traffic management via the Gateway API Inference Extension, routing on model-serving semantics rather than raw HTTP. Useful baseline for anyone running LLM traffic behind a mesh.</p>
+          <h2>Istio Gateway API Inference Extension</h2>
+          <p>Istio documents AI-aware traffic management via the Gateway API Inference Extension, routing on model identity and token-aware metrics. Useful pattern for LLM-serving ingress.</p>
           <div class="card-meta">
-            <a href="https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api-inference-extension/" rel="noreferrer">Istio docs</a>
-            <span>Direct read for inference-routing design choices.</span>
+            <a href="https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api-inference-extension/" rel="noreferrer">istio.io task</a>
+            <span>Concrete reference for layering inference-aware routing on top of existing Istio gateways.</span>
           </div>
         </div>
       </article>
@@ -43,38 +43,12 @@
       <article class="pulse-card">
         <img src="assets/img/paper.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">BLOG</p>
-          <h2>AI-aware traffic management context</h2>
-          <p>Istio&#x27;s own write-up explains the motivation behind inference-extension support and how it composes with existing mesh primitives. Helpful framing before adopting the task above.</p>
+          <p class="label">AI ROUTING</p>
+          <h2>Istio blog: inference extension support</h2>
+          <p>Background on why Istio added inference-aware traffic management and how it composes with Gateway API. Good narrative to ground design conversations.</p>
           <div class="card-meta">
-            <a href="https://istio.io/latest/blog/2025/inference-extension-support/" rel="noreferrer">Istio blog</a>
-            <span>Background context for mesh + LLM routing decisions.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="assets/img/runtime.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">LLM SERVING</p>
-          <h2>SGLang releases to track</h2>
-          <p>SGLang&#x27;s release feed is the cleanest way to monitor runtime fixes and feature changes relevant to high-throughput LLM serving. Skim release notes for keepalive, scheduler, and tokenizer changes.</p>
-          <div class="card-meta">
-            <a href="https://github.com/sgl-project/sglang/releases" rel="noreferrer">SGLang releases</a>
-            <span>Upstream awareness for serving-stack reliability.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="assets/img/mesh.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">PROJECT</p>
-          <h2>llm-d distributed inference</h2>
-          <p>llm-d is an emerging Kubernetes-native framework for distributed LLM inference, worth tracking alongside vLLM and SGLang as serving stacks converge on shared patterns.</p>
-          <div class="card-meta">
-            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d repo</a>
-            <span>Scan architecture choices before committing to a serving topology.</span>
+            <a href="https://istio.io/latest/blog/2025/inference-extension-support/" rel="noreferrer">istio.io blog</a>
+            <span>Frames the &#x27;why&#x27; behind inference-aware mesh routing for design discussions.</span>
           </div>
         </div>
       </article>
@@ -82,12 +56,51 @@
       <article class="pulse-card">
         <img src="assets/img/contribution.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">OPPORTUNITY</p>
-          <h2>Gateway API Inference Extension</h2>
-          <p>The upstream Kubernetes SIG project defines the CRDs and conformance for inference routing. Issues and docs gaps here are a clean open-source contribution angle for anyone running it in production.</p>
+          <p class="label">OPEN SOURCE</p>
+          <h2>Gateway API Inference Extension repo</h2>
+          <p>Upstream Kubernetes SIG project defining the inference extension CRDs and conformance. Issues and proposals are an entry point for contribution.</p>
           <div class="card-meta">
             <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">kubernetes-sigs repo</a>
-            <span>Concrete path to upstream contribution from production usage.</span>
+            <span>Concrete opportunity to file issues or PRs that compound across LLM-serving platforms.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="assets/img/mesh.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">LLM SERVING</p>
+          <h2>llm-d project</h2>
+          <p>Distributed LLM serving stack designed to plug into Kubernetes and inference-aware gateways. Worth tracking as the reference implementation alongside vLLM and SGLang.</p>
+          <div class="card-meta">
+            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d GitHub</a>
+            <span>Useful comparison point when evaluating inference routing and serving topologies.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="assets/img/runtime.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">SGLANG</p>
+          <h2>SGLang release stream</h2>
+          <p>Active release cadence with fixes around scheduling, networking, and keepalive paths. Skim the latest notes for anything touching production stability.</p>
+          <div class="card-meta">
+            <a href="https://github.com/sgl-project/sglang/releases" rel="noreferrer">SGLang releases</a>
+            <span>Track upstream fixes relevant to LLM-serving reliability and contribution opportunities.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card priority">
+        <img src="assets/img/one-move.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">ONE MOVE</p>
+          <h2>Pick one inference-routing primitive to prototype</h2>
+          <p>Stand up a minimal Gateway API Inference Extension example against a local serving stack to feel the rough edges. A small hands-on prototype beats more reading today.</p>
+          <div class="card-meta">
+            <a href="https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api-inference-extension/" rel="noreferrer">istio.io task</a>
+            <span>Converts passive watching of the mesh+inference space into a concrete experiment.</span>
           </div>
         </div>
       </article>
