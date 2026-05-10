@@ -23,19 +23,32 @@
     <section class="intro" aria-labelledby="pulse-title">
       <p class="kicker">Morning intelligence</p>
       <h1 id="pulse-title">May 10</h1>
-      <p class="lede">Service mesh egress changes, vLLM 0.20.2 stability fixes, and a fresh paper on MLA-native caching shape today&#x27;s reading.</p>
+      <p class="lede">Inference-serving releases, a fresh KV-cache paper, and Istio&#x27;s Gateway API Inference Extension all converge on today&#x27;s reliability work.</p>
     </section>
 
     <section class="feed" aria-label="Daily Pulse cards">
+      <article class="pulse-card priority">
+        <img src="assets/img/one-move.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">FOCUS</p>
+          <h2>Ship the causal-chain triage iteration</h2>
+          <p>Lock in the next iteration of the incident-triage agent so investigation clustering keeps producing fresh signal. Idle days here cost research material downstream.</p>
+          <div class="card-meta">
+            <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">Gateway API Inference Extension</a>
+            <span>Compounds agent quality and feeds the paper draft.</span>
+          </div>
+        </div>
+      </article>
+
       <article class="pulse-card">
         <img src="assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">VLLM RELEASE</p>
-          <h2>vLLM v0.20.2 ships hang and KV fixes</h2>
-          <p>v0.20.2 lands a DeepSeek V4 MTP=1 hang fix, a KV-block allocation fix, and a gpt-oss MXFP4 torch.compile fix. Anyone running v0.20.x on these models should pin to .2.</p>
+          <p class="label">INFERENCE</p>
+          <h2>vLLM v0.20.2 ships hang + KV-block fixes</h2>
+          <p>Latest vLLM patches a DeepSeek V4 MTP=1 hang, a KV-block allocation bug, and a gpt-oss MXFP4 torch.compile issue. Anyone on v0.20.x serving those models should pin to v0.20.2.</p>
           <div class="card-meta">
-            <a href="https://github.com/vllm-project/vllm/releases/tag/v0.20.2" rel="noreferrer">vLLM v0.20.2 release</a>
-            <span>Pin clusters running DeepSeek V4 or gpt-oss to v0.20.2 to avoid silent hangs.</span>
+            <a href="https://github.com/vllm-project/vllm/releases" rel="noreferrer">vLLM v0.20.2 release</a>
+            <span>Pre-empt a hang that would look like a model-slow false signal.</span>
           </div>
         </div>
       </article>
@@ -44,11 +57,11 @@
         <img src="assets/img/paper.svg" alt="" class="thumb">
         <div class="card-copy">
           <p class="label">PAPER</p>
-          <h2>Irminsul: MLA-native position-independent caching</h2>
-          <p>New arXiv preprint quantifies 10–16s TTFT spikes when bit-identical tokens shift position turn-over-turn, and proposes a closed-form correction. Useful primitive for reasoning about cache-hit invariants.</p>
+          <h2>MLA-native position-independent caching</h2>
+          <p>New arXiv preprint quantifies 10–16s TTFT spikes when bit-identical tokens shift position across turns, and proposes a closed-form correction. Clean precondition primitive for cache-hit invariants.</p>
           <div class="card-meta">
-            <a href="https://arxiv.org/abs/2605.05696v1" rel="noreferrer">arXiv 2605.05696</a>
-            <span>20-min skim — clean precondition primitive for any work on action-boundary contracts.</span>
+            <a href="https://arxiv.org/abs/2605.05696" rel="noreferrer">arXiv 2605.05696</a>
+            <span>20-min skim arms workload-characterization writing with a concrete invariant.</span>
           </div>
         </div>
       </article>
@@ -56,12 +69,12 @@
       <article class="pulse-card">
         <img src="assets/img/mesh.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">ISTIO</p>
-          <h2>REGISTRY_ONLY now supports wildcard egress DNS</h2>
-          <p>Istio&#x27;s egress simplification lets REGISTRY_ONLY mode resolve wildcard DNS destinations dynamically, reducing ServiceEntry sprawl. Changes how a sidecar-bypass audit should be scoped before an mTLS STRICT migration.</p>
+          <p class="label">MESH</p>
+          <h2>Istio egress wildcard DNS lands</h2>
+          <p>REGISTRY_ONLY now supports wildcard DNS destinations, simplifying egress policy for services that previously had to bypass the sidecar. Worth a read before any mTLS-STRICT migration audit.</p>
           <div class="card-meta">
-            <a href="https://istio.io/latest/blog/2026/egress-dynamic-dns/" rel="noreferrer">Istio blog 2026-04-09</a>
-            <span>Read once before any mTLS STRICT rollout planning.</span>
+            <a href="https://istio.io/latest/blog/2026/egress-dynamic-dns/" rel="noreferrer">Istio egress blog</a>
+            <span>Changes the shape of the sidecar-bypass audit step.</span>
           </div>
         </div>
       </article>
@@ -69,25 +82,12 @@
       <article class="pulse-card">
         <img src="assets/img/contribution.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">OPPORTUNITY</p>
-          <h2>SGLang keepalive race — upstream PRs pending</h2>
-          <p>Three open SGLang PRs (#24323, #24329, #24330) target a production-observed keepalive race that can be misdiagnosed as a model-side hang. Tracking review progress is worth a few minutes.</p>
+          <p class="label">OSS</p>
+          <h2>Gateway API Inference Extension + Istio</h2>
+          <p>Istio&#x27;s AI-aware traffic management built on the Gateway API Inference Extension is an active surface for upstream contribution — model-aware routing, fairness, and pool semantics are still maturing.</p>
           <div class="card-meta">
-            <a href="https://github.com/sgl-project/sglang/pulls" rel="noreferrer">SGLang PRs</a>
-            <span>Opportunity to move review along on a fix you authored upstream.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="assets/img/paper.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">GATEWAY API</p>
-          <h2>Gateway API Inference Extension momentum</h2>
-          <p>The Gateway API Inference Extension continues to mature as the standard surface for routing LLM traffic across backends. Worth a periodic skim of the spec and conformance status.</p>
-          <div class="card-meta">
-            <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">Inference Extension repo</a>
-            <span>Track the convergence point between service mesh and inference routing.</span>
+            <a href="https://istio.io/latest/blog/2025/inference-extension-support/" rel="noreferrer">Istio inference extension</a>
+            <span>Opportunity to land issues or PRs in a directly-relevant project.</span>
           </div>
         </div>
       </article>
@@ -95,12 +95,12 @@
       <article class="pulse-card">
         <img src="assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">LLM-D</p>
-          <h2>llm-d disaggregated serving project</h2>
-          <p>llm-d is the Kubernetes-native, disaggregated LLM serving stack from the vLLM and inference-extension communities. Release candidates land regularly; the architecture overlaps closely with prefill/decode split work.</p>
+          <p class="label">SERVING</p>
+          <h2>SGLang + llm-d worth watching</h2>
+          <p>SGLang releases continue to ship keepalive and scheduler fixes; llm-d is consolidating distributed-inference patterns on Kubernetes. Both shape the reliability surface for self-hosted LLM serving.</p>
           <div class="card-meta">
-            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d project</a>
-            <span>Reference architecture for any prefill/decode split design discussion.</span>
+            <a href="https://github.com/sgl-project/sglang/releases" rel="noreferrer">SGLang releases</a>
+            <span>Track release notes for fixes that affect production keepalive behavior.</span>
           </div>
         </div>
       </article>
