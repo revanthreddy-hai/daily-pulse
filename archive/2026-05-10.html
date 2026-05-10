@@ -23,7 +23,7 @@
     <section class="intro" aria-labelledby="pulse-title">
       <p class="kicker">Morning intelligence</p>
       <h1 id="pulse-title">May 10</h1>
-      <p class="lede">Signals for service-mesh inference routing, LLM-serving runtimes, and a formal-verification angle worth a small experiment.</p>
+      <p class="lede">Five signals at the intersection of service mesh, LLM serving, and reliability engineering worth a scan today.</p>
     </section>
 
     <section class="feed" aria-label="Daily Pulse cards">
@@ -31,11 +31,11 @@
         <img src="../assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
           <p class="label">SERVICE MESH</p>
-          <h2>Istio Gateway API Inference Extension</h2>
-          <p>Istio now supports the Gateway API Inference Extension for model-aware traffic routing across LLM backends. Useful primer for anyone designing mesh-level routing to inference pools.</p>
+          <h2>Istio + Gateway API Inference Extension</h2>
+          <p>Istio now supports AI-aware traffic management via the Gateway API Inference Extension, routing on model-serving semantics rather than raw HTTP. Useful baseline for anyone running LLM traffic behind a mesh.</p>
           <div class="card-meta">
             <a href="https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api-inference-extension/" rel="noreferrer">Istio docs</a>
-            <span>Reference architecture for routing across LLM-serving fleets</span>
+            <span>Direct read for inference-routing design choices.</span>
           </div>
         </div>
       </article>
@@ -43,12 +43,12 @@
       <article class="pulse-card">
         <img src="../assets/img/paper.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">AI-AWARE TRAFFIC</p>
-          <h2>Inference-aware load balancing in the mesh</h2>
-          <p>Istio&#x27;s support post explains why round-robin breaks for LLM workloads and how inference-extension endpoints pick model replicas by KV-cache and queue state. Worth reading before sketching any LLM-serving routing layer.</p>
+          <p class="label">BLOG</p>
+          <h2>AI-aware traffic management context</h2>
+          <p>Istio&#x27;s own write-up explains the motivation behind inference-extension support and how it composes with existing mesh primitives. Helpful framing before adopting the task above.</p>
           <div class="card-meta">
             <a href="https://istio.io/latest/blog/2025/inference-extension-support/" rel="noreferrer">Istio blog</a>
-            <span>Frames why classic L7 LB is wrong for token-streaming workloads</span>
+            <span>Background context for mesh + LLM routing decisions.</span>
           </div>
         </div>
       </article>
@@ -56,12 +56,25 @@
       <article class="pulse-card">
         <img src="../assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">GATEWAY API</p>
-          <h2>Gateway API Inference Extension upstream</h2>
-          <p>Upstream repo for the InferencePool / InferenceModel CRDs and endpoint-picker. Tracking issues here is the fastest way to see where mesh-level LLM routing is heading.</p>
+          <p class="label">LLM SERVING</p>
+          <h2>SGLang releases to track</h2>
+          <p>SGLang&#x27;s release feed is the cleanest way to monitor runtime fixes and feature changes relevant to high-throughput LLM serving. Skim release notes for keepalive, scheduler, and tokenizer changes.</p>
           <div class="card-meta">
-            <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">kubernetes-sigs repo</a>
-            <span>Good surface for a small open-source contribution</span>
+            <a href="https://github.com/sgl-project/sglang/releases" rel="noreferrer">SGLang releases</a>
+            <span>Upstream awareness for serving-stack reliability.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="../assets/img/mesh.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">PROJECT</p>
+          <h2>llm-d distributed inference</h2>
+          <p>llm-d is an emerging Kubernetes-native framework for distributed LLM inference, worth tracking alongside vLLM and SGLang as serving stacks converge on shared patterns.</p>
+          <div class="card-meta">
+            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d repo</a>
+            <span>Scan architecture choices before committing to a serving topology.</span>
           </div>
         </div>
       </article>
@@ -69,38 +82,12 @@
       <article class="pulse-card">
         <img src="../assets/img/contribution.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">LLM SERVING</p>
-          <h2>llm-d distributed inference project</h2>
-          <p>llm-d composes vLLM-style engines with disaggregated prefill/decode and KV-aware routing on Kubernetes. Issues around scheduler and routing integration are an approachable contribution angle for someone already deep in mesh and serving.</p>
+          <p class="label">OPPORTUNITY</p>
+          <h2>Gateway API Inference Extension</h2>
+          <p>The upstream Kubernetes SIG project defines the CRDs and conformance for inference routing. Issues and docs gaps here are a clean open-source contribution angle for anyone running it in production.</p>
           <div class="card-meta">
-            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d on GitHub</a>
-            <span>Concrete OSS contribution surface aligned to current themes</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="../assets/img/paper.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">RUNTIME</p>
-          <h2>SGLang release stream</h2>
-          <p>SGLang ships frequent releases touching scheduler, radix cache, and server stability. Skimming the latest notes is the cheapest way to stay current on the runtime that often shows up under production keepalive and concurrency bugs.</p>
-          <div class="card-meta">
-            <a href="https://github.com/sgl-project/sglang/releases" rel="noreferrer">SGLang releases</a>
-            <span>Catch regressions and new knobs before they surface in serving</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="../assets/img/paper.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">PAPER ANGLE</p>
-          <h2>AI + formal verification at infra boundaries</h2>
-          <p>Kleppmann&#x27;s essay argues lightweight formal contracts are the right pairing for AI agents acting on systems. A useful provocation for anyone writing about action-boundary safety for autonomous infra agents.</p>
-          <div class="card-meta">
-            <a href="https://martin.kleppmann.com/2025/12/08/ai-formal-verification.html" rel="noreferrer">Kleppmann essay</a>
-            <span>Sharpens the contract-based framing for agent safety writing</span>
+            <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">kubernetes-sigs repo</a>
+            <span>Concrete path to upstream contribution from production usage.</span>
           </div>
         </div>
       </article>
