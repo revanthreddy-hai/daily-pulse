@@ -4,16 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Daily Pulse</title>
+  <title>Daily Pulse - May 10</title>
   <link rel="stylesheet" href="assets/css/pulse.css">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="./" aria-label="Daily Pulse home">Daily Pulse</a>
     <nav class="nav-actions" aria-label="Pulse actions">
-      <a class="icon-link" href="archive/2026-05-10.html" title="Open today's archive page" aria-label="Open today's archive page">
-        <span data-lucide="calendar-days"></span>
-      </a>
+      <a class="icon-link" href="archive/2026-05-10.html" title="Open archive page" aria-label="Open archive page"><span data-lucide="calendar-days"></span></a>
       <a class="primary-action" href="https://github.com/revanthreddy-hai/daily-pulse" title="Open source repository">
         <span data-lucide="github"></span>
         <span>Source</span>
@@ -25,32 +23,19 @@
     <section class="intro" aria-labelledby="pulse-title">
       <p class="kicker">Morning intelligence</p>
       <h1 id="pulse-title">May 10</h1>
-      <p class="lede">A curated view of the highest-signal external changes, internal follow-ups, and one move worth protecting today.</p>
+      <p class="lede">Service mesh egress changes, vLLM 0.20.2 stability fixes, and a fresh paper on MLA-native caching shape today&#x27;s reading.</p>
     </section>
 
     <section class="feed" aria-label="Daily Pulse cards">
-      <article class="pulse-card priority">
-        <img src="assets/img/one-move.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">One move today</p>
-          <h2>Protect the highest-leverage ship decision</h2>
-          <p>Move the most consequential workstream forward before context-switching into the paper sprint. The point is not volume; it is reducing drift on the decision that unlocks the rest of the week.</p>
-          <div class="card-meta">
-            <span>Action</span>
-            <span>High leverage</span>
-          </div>
-        </div>
-      </article>
-
       <article class="pulse-card">
         <img src="assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">External signal</p>
-          <h2>vLLM runtime fixes worth checking</h2>
-          <p>Recent serving-runtime fixes touch hang behavior and KV allocation. If a cluster is on the affected version family, validate whether the update changes triage assumptions before blaming the app layer.</p>
+          <p class="label">VLLM RELEASE</p>
+          <h2>vLLM v0.20.2 ships hang and KV fixes</h2>
+          <p>v0.20.2 lands a DeepSeek V4 MTP=1 hang fix, a KV-block allocation fix, and a gpt-oss MXFP4 torch.compile fix. Anyone running v0.20.x on these models should pin to .2.</p>
           <div class="card-meta">
-            <a href="https://github.com/vllm-project/vllm/releases" rel="noreferrer">Release notes</a>
-            <span>Confidence: high</span>
+            <a href="https://github.com/vllm-project/vllm/releases/tag/v0.20.2" rel="noreferrer">vLLM v0.20.2 release</a>
+            <span>Pin clusters running DeepSeek V4 or gpt-oss to v0.20.2 to avoid silent hangs.</span>
           </div>
         </div>
       </article>
@@ -58,12 +43,12 @@
       <article class="pulse-card">
         <img src="assets/img/paper.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">Learning edge</p>
-          <h2>Position-independent caching</h2>
-          <p>A new paper frames cache-hit invariants as a concrete precondition for agentic workloads. It is a useful bridge between serving performance and formal action-boundary contracts.</p>
+          <p class="label">PAPER</p>
+          <h2>Irminsul: MLA-native position-independent caching</h2>
+          <p>New arXiv preprint quantifies 10–16s TTFT spikes when bit-identical tokens shift position turn-over-turn, and proposes a closed-form correction. Useful primitive for reasoning about cache-hit invariants.</p>
           <div class="card-meta">
-            <a href="https://arxiv.org/abs/2605.05696" rel="noreferrer">Paper</a>
-            <span>20 minute skim</span>
+            <a href="https://arxiv.org/abs/2605.05696v1" rel="noreferrer">arXiv 2605.05696</a>
+            <span>20-min skim — clean precondition primitive for any work on action-boundary contracts.</span>
           </div>
         </div>
       </article>
@@ -71,27 +56,51 @@
       <article class="pulse-card">
         <img src="assets/img/mesh.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">Infra radar</p>
-          <h2>Istio egress changes before the audit</h2>
-          <p>Wildcard DNS support in strict registry mode changes how much friction to expect in an upcoming service-mesh audit. Read it once before starting, but do not let it steal today.</p>
+          <p class="label">ISTIO</p>
+          <h2>REGISTRY_ONLY now supports wildcard egress DNS</h2>
+          <p>Istio&#x27;s egress simplification lets REGISTRY_ONLY mode resolve wildcard DNS destinations dynamically, reducing ServiceEntry sprawl. Changes how a sidecar-bypass audit should be scoped before an mTLS STRICT migration.</p>
           <div class="card-meta">
-            <a href="https://istio.io/latest/blog/2026/egress-dynamic-dns/" rel="noreferrer">Istio blog</a>
-            <span>Defer until audit</span>
+            <a href="https://istio.io/latest/blog/2026/egress-dynamic-dns/" rel="noreferrer">Istio blog 2026-04-09</a>
+            <span>Read once before any mTLS STRICT rollout planning.</span>
           </div>
         </div>
       </article>
 
-      <div class="divider" role="presentation"></div>
-
-      <article class="pulse-card muted">
-        <img src="assets/img/private.svg" alt="" class="thumb">
+      <article class="pulse-card">
+        <img src="assets/img/contribution.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">Private work context</p>
-          <h2>Internal heads-up redacted for public web</h2>
-          <p>The local Pulse includes private operational details. The public site keeps the shape of the brief without exposing company systems, issue names, cluster names, or raw source logs.</p>
+          <p class="label">OPPORTUNITY</p>
+          <h2>SGLang keepalive race — upstream PRs pending</h2>
+          <p>Three open SGLang PRs (#24323, #24329, #24330) target a production-observed keepalive race that can be misdiagnosed as a model-side hang. Tracking review progress is worth a few minutes.</p>
           <div class="card-meta">
-            <span>Sanitized</span>
-            <span>Local full brief only</span>
+            <a href="https://github.com/sgl-project/sglang/pulls" rel="noreferrer">SGLang PRs</a>
+            <span>Opportunity to move review along on a fix you authored upstream.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="assets/img/paper.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">GATEWAY API</p>
+          <h2>Gateway API Inference Extension momentum</h2>
+          <p>The Gateway API Inference Extension continues to mature as the standard surface for routing LLM traffic across backends. Worth a periodic skim of the spec and conformance status.</p>
+          <div class="card-meta">
+            <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">Inference Extension repo</a>
+            <span>Track the convergence point between service mesh and inference routing.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="assets/img/runtime.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">LLM-D</p>
+          <h2>llm-d disaggregated serving project</h2>
+          <p>llm-d is the Kubernetes-native, disaggregated LLM serving stack from the vLLM and inference-extension communities. Release candidates land regularly; the architecture overlaps closely with prefill/decode split work.</p>
+          <div class="card-meta">
+            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d project</a>
+            <span>Reference architecture for any prefill/decode split design discussion.</span>
           </div>
         </div>
       </article>
