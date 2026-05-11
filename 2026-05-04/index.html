@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Daily Pulse - May 10</title>
+  <title>Daily Pulse - May 4</title>
   <link rel="stylesheet" href="../assets/css/pulse.css">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="../" aria-label="Daily Pulse home">Daily Pulse</a>
     <nav class="nav-actions" aria-label="Pulse actions">
-      <a class="icon-link" href="../" title="Latest pulse" aria-label="Latest pulse"><span data-lucide="arrow-left"></span></a>
+      <a class="icon-link" href="../" title="Latest pulse" aria-label="Latest pulse"><span data-lucide="arrow-left"></span></a><a class="icon-link" href="../archive/" title="Past pulses" aria-label="Past pulses"><span data-lucide="calendar-days"></span></a>
       <a class="primary-action" href="https://github.com/revanthreddy-hai/daily-pulse" title="Open source repository">
         <span data-lucide="github"></span>
         <span>Source</span>
@@ -22,8 +22,8 @@
   <main class="pulse-shell">
     <section class="intro" aria-labelledby="pulse-title">
       <p class="kicker">Morning intelligence</p>
-      <h1 id="pulse-title">May 10</h1>
-      <p class="lede">Signals at the intersection of Kubernetes, LLM serving, service mesh, and coding agents worth a scan today.</p>
+      <h1 id="pulse-title">May 4</h1>
+      <p class="lede">Signals at the intersection of Kubernetes, LLM serving, service mesh, and coding agents worth a scan today. Public demo backfill.</p>
     </section>
 
     <section class="feed" aria-label="Daily Pulse cards">
@@ -31,37 +31,11 @@
         <img src="../assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
           <p class="label">VLLM</p>
-          <h2>vLLM v0.20.2 ships stable fixes</h2>
-          <p>vLLM v0.20.2 shipped on May 10 with hang and KV-block related fixes. Stable serving-runtime fixes belong in the daily watch list because they can masquerade as app issues.</p>
+          <h2>vLLM v0.20.1 stable release</h2>
+          <p>vLLM v0.20.1 landed as a stable release. Keep stable runtime releases in the Pulse because small serving changes can look like application-level reliability symptoms.</p>
           <div class="card-meta">
-            <a href="https://github.com/vllm-project/vllm/releases/tag/v0.20.2" rel="noreferrer">vLLM v0.20.2</a>
-            <span>Scan before diagnosing model-slow symptoms.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="../assets/img/runtime.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">CODEX</p>
-          <h2>Codex v0.131.0 alpha advances</h2>
-          <p>OpenAI Codex published another v0.131.0 alpha on May 10. It is relevant because Codex can own the website build and browser screenshot QA loop.</p>
-          <div class="card-meta">
-            <a href="https://github.com/openai/codex/releases/tag/rust-v0.131.0-alpha.5" rel="noreferrer">Codex alpha</a>
-            <span>Potential upgrade for visual QA workflows.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="../assets/img/runtime.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">CLAUDE CODE</p>
-          <h2>Claude Code v2.1.138 appears</h2>
-          <p>Claude Code v2.1.138 landed on May 9. For a mixed Codex/Claude workflow, release awareness helps explain why automation behavior changes.</p>
-          <div class="card-meta">
-            <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.138" rel="noreferrer">Claude Code v2.1.138</a>
-            <span>Track headless-agent behavior shifts.</span>
+            <a href="https://github.com/vllm-project/vllm/releases/tag/v0.20.1" rel="noreferrer">vLLM v0.20.1</a>
+            <span>Pin or test before broad rollout.</span>
           </div>
         </div>
       </article>
@@ -70,11 +44,24 @@
         <img src="../assets/img/mesh.svg" alt="" class="thumb">
         <div class="card-copy">
           <p class="label">KUBERNETES</p>
-          <h2>Volume Group Snapshots move to GA</h2>
-          <p>Kubernetes v1.36 moved Volume Group Snapshots to GA. It is less LLM-serving-specific, but it matters for stateful platform recovery and backup semantics.</p>
+          <h2>Admission policies that cannot be deleted</h2>
+          <p>Kubernetes v1.36 highlighted manifest-based admission control. For platform work, deletion-resistant policy paths matter when guardrails need to survive drift.</p>
           <div class="card-meta">
-            <a href="https://kubernetes.io/blog/2026/05/08/kubernetes-v1-36-volume-group-snapshot-ga/" rel="noreferrer">Kubernetes blog</a>
-            <span>Useful for recovery planning vocabulary.</span>
+            <a href="https://kubernetes.io/blog/2026/05/04/kubernetes-v1-36-manifest-based-admission-control/" rel="noreferrer">Kubernetes blog</a>
+            <span>Useful for policy guardrail design.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="../assets/img/runtime.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">LLM-D</p>
+          <h2>llm-d v0.7.0 release candidates start</h2>
+          <p>llm-d published v0.7.0 release candidates on May 1, including fixes around images and connectors. Watch the project as Kubernetes-native LLM serving patterns mature.</p>
+          <div class="card-meta">
+            <a href="https://github.com/llm-d/llm-d/releases/tag/v0.7.0-rc.2" rel="noreferrer">llm-d v0.7.0-rc.2</a>
+            <span>Good reference for disaggregated serving design.</span>
           </div>
         </div>
       </article>
