@@ -23,32 +23,19 @@
     <section class="intro" aria-labelledby="pulse-title">
       <p class="kicker">Morning intelligence</p>
       <h1 id="pulse-title">May 11</h1>
-      <p class="lede">Quick reads on AI-aware traffic management, inference serving, and Gateway API momentum — pick one to learn or contribute to.</p>
+      <p class="lede">Six reads to sharpen agentic incident response, safe autonomous remediation, operating-memory systems, and platform reliability.</p>
     </section>
 
     <section class="feed" aria-label="Daily Pulse cards">
       <article class="pulse-card">
         <img src="assets/img/mesh.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">SERVICE MESH</p>
-          <h2>Istio&#x27;s Gateway API Inference Extension task</h2>
-          <p>Istio now documents how to route LLM traffic with inference-aware load balancing via the Gateway API Inference Extension. Worth walking through end-to-end to compare against your own routing assumptions.</p>
+          <p class="label">K8S SCALING</p>
+          <h2>Server-side sharded list and watch lands in 1.36</h2>
+          <p>Kubernetes 1.36 adds alpha server-side sharding for list/watch so controller replicas only receive their slice of high-cardinality resources. This changes the cost model for any agent or controller that watches Pods at fleet scale.</p>
           <div class="card-meta">
-            <a href="https://istio.io/latest/docs/tasks/traffic-management/ingress/gateway-api-inference-extension/" rel="noreferrer">istio.io task</a>
-            <span>Direct map to your service-mesh + LLM-serving themes; try the task in a sandbox cluster.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="pulse-card">
-        <img src="assets/img/runtime.svg" alt="" class="thumb">
-        <div class="card-copy">
-          <p class="label">AI TRAFFIC</p>
-          <h2>Istio&#x27;s AI-aware traffic management</h2>
-          <p>Istio&#x27;s blog explains why inference-aware routing matters and how the extension plugs into existing mesh setups. Useful framing for any reliability or routing audit involving LLM backends.</p>
-          <div class="card-meta">
-            <a href="https://istio.io/latest/blog/2025/inference-extension-support/" rel="noreferrer">istio.io blog</a>
-            <span>Sharpens your narrative when proposing inference-routing changes.</span>
+            <a href="https://kubernetes.io/blog/2026/05/06/kubernetes-v1-36-server-side-sharded-list-and-watch/" rel="noreferrer">kubernetes.io</a>
+            <span>Directly relevant to designing incident-response agents that scrape cluster state without paying the...</span>
           </div>
         </div>
       </article>
@@ -56,25 +43,38 @@
       <article class="pulse-card">
         <img src="assets/img/paper.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">INFERENCE</p>
-          <h2>Gateway API Inference Extension repo</h2>
-          <p>The upstream Kubernetes SIG project defining the inference-routing CRDs and EPP. Reading recent issues and design docs is the fastest way to spot contribution surface area.</p>
+          <p class="label">RESEARCH</p>
+          <h2>Irminsul: caching for safe autonomous systems</h2>
+          <p>A paper worth a careful pass on caching and reuse semantics that bear on agent reasoning loops. Useful as a primary citation lane for the safe-remediation argument.</p>
           <div class="card-meta">
-            <a href="https://github.com/kubernetes-sigs/gateway-api-inference-extension" rel="noreferrer">kubernetes-sigs repo</a>
-            <span>High-leverage open-source angle aligned with your routing work.</span>
+            <a href="https://arxiv.org/abs/2605.05696" rel="noreferrer">arXiv</a>
+            <span>Sharpens the evidence-and-reuse story behind autonomous remediation research.</span>
           </div>
         </div>
       </article>
 
       <article class="pulse-card">
-        <img src="assets/img/contribution.svg" alt="" class="thumb">
+        <img src="assets/img/paper.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">LLM SERVING</p>
-          <h2>SGLang releases</h2>
-          <p>Track recent SGLang releases for fixes and features near serving stability and keepalive paths. Recent release notes often reveal opportunities to file follow-up issues or small PRs.</p>
+          <p class="label">OPERATING MEMORY</p>
+          <h2>Memory is state, not a service</h2>
+          <p>Argues that durable agent memory should be modeled as reviewable state rather than an opaque retrieval service. Maps cleanly onto operating-memory systems with auditable, queryable knowledge surfaces.</p>
           <div class="card-meta">
-            <a href="https://github.com/sgl-project/sglang/releases" rel="noreferrer">sglang releases</a>
-            <span>Stay close to upstream where your debugging workflow already overlaps.</span>
+            <a href="https://nanothoughts.substack.com/p/memory-is-state-not-a-service" rel="noreferrer">nanothoughts</a>
+            <span>Frames the design constraints for any second-brain or knowledge-cockpit build.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="assets/img/paper.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">VERIFICATION</p>
+          <h2>AI and formal verification</h2>
+          <p>Kleppmann on where formal methods can backstop LLM-generated artifacts. A useful counterweight when arguing for evidence gates inside autonomous remediation loops.</p>
+          <div class="card-meta">
+            <a href="https://martin.kleppmann.com/2025/12/08/ai-formal-verification.html" rel="noreferrer">martin.kleppmann.com</a>
+            <span>Supports the boundary-and-proof framing of safe autonomous action.</span>
           </div>
         </div>
       </article>
@@ -82,12 +82,25 @@
       <article class="pulse-card">
         <img src="assets/img/runtime.svg" alt="" class="thumb">
         <div class="card-copy">
-          <p class="label">DISTRIBUTED LLM</p>
-          <h2>llm-d project</h2>
-          <p>llm-d explores distributed LLM serving on Kubernetes with disaggregated prefill/decode and smart routing. Good signal for where inference platforms are heading beyond single-node servers.</p>
+          <p class="label">CODING AGENT</p>
+          <h2>Claude Code 2.1.133–2.1.138 worktree and hook changes</h2>
+          <p>Recent releases add a worktree.baseRef setting, expose effort level to hooks, and harden MCP OAuth refresh under concurrent servers. Small but real shifts for parallel-agent and review-gate workflows.</p>
           <div class="card-meta">
-            <a href="https://github.com/llm-d/llm-d" rel="noreferrer">llm-d repo</a>
-            <span>Compare design choices against your own LLM-serving roadmap.</span>
+            <a href="https://github.com/anthropics/claude-code/releases" rel="noreferrer">claude-code releases</a>
+            <span>Worth a quick scan before next agent-orchestration tweak; behavior of fresh worktrees changed.</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="pulse-card">
+        <img src="assets/img/mesh.svg" alt="" class="thumb">
+        <div class="card-copy">
+          <p class="label">LLM SERVING</p>
+          <h2>Istio Gateway API Inference Extension — AI-aware routing</h2>
+          <p>Istio&#x27;s writeup on InferencePool and InferenceModel makes the case for queue-, KV-cache- and LoRA-aware routing instead of round-robin. Worth keeping the mental model fresh when reasoning about model-serving traffic.</p>
+          <div class="card-meta">
+            <a href="https://istio.io/latest/blog/2025/inference-extension-support/" rel="noreferrer">istio.io</a>
+            <span>Anchors a single LLM-serving lane without crowding out the rest of the pulse.</span>
           </div>
         </div>
       </article>
